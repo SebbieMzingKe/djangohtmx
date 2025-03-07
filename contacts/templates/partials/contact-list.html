@@ -15,7 +15,7 @@
               <tr>
                 <td>{{ contact.name }}</td>
                 <td>{{ contact.email }}</td>
-                <td>{{ contact.created_at }}</td>
+                <td>{{ contact.created_at|date:"M d, Y" }}</td>
                 <td>
                   <button class="btn btn-xs btn-error">Delete</button>
                 </td>

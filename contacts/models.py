@@ -19,5 +19,6 @@ class Contact(models.Model):
 
     class Meta:
         unique_together = ('name', 'email')
-        def __str__(self):
-            return f"{self.name} <{self.name}>"
+        
+    def __str__(self):
+        return f"{self.name} <{self.name}>"
