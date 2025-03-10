@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+import time
 
 # Create your views here.
 
@@ -13,6 +14,7 @@ def index(request):
 @login_required
 def search_contacts(request):
 
+    time.sleep(2)
     query = request.GET.get("search", "")
 
     # use query to filter user by email or name
