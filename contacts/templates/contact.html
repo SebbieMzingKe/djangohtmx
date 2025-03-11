@@ -13,10 +13,10 @@
             name="search" 
             hx-get="{% url 'search' %}"
             hx-trigger="keyup delay:500ms"
-            hx-target="#contacts-list" 
+            hx-target="#contact-list" 
             hx-indicator="#spinner"
-            hx-on::before-request="document.getElementById(contact-list).style.opacity=0.4;"
-            hx-on::after-request="document.getElementById(contact-list).style.opacity=1.0;"
+            hx-on::before-request="document.getElementById('contact-list').style.opacity=0.4;"
+            hx-on::after-request="document.getElementById('contact-list').style.opacity=1.0;"
             />
         <svg
           xmlns="http://www.w3.org/2000/svg"
