@@ -2,13 +2,17 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 import time
+from .forms import ContactForm
 
 # Create your views here.
 
 @login_required
 def index(request):
     contacts = request.user.contacts.all().order_by('-created_at')
-    context = {"contacts": contacts}
+    context = {
+        "contacts": contacts,
+        "form": ContactForm()
+        }
     return render(request, "contact.html", context)
 
 @login_required
@@ -21,7 +25,9 @@ def search_contacts(request):
     contacts = request.user.contacts.filter(
         Q(email__icontains=query) | Q(name__icontains=query)
     )
-    context = {"contacts": contacts}
+    context = {
+        "contacts": contacts
+        }
     return render(request, "partials/contact-list.html", {
         "contacts": contacts
     })
