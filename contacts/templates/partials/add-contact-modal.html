@@ -1,9 +1,11 @@
-<dialog id="contact-modal" class="modal">
+<dialog id="contact_modal" class="modal">
   <div class="modal-box">
     <h3 class="font-bold text-lg mb-4">Add New Contact</a>
+
     <form method="post" class="mb-4">
+
       {% csrf_token %}
-      <div class="form-contrl w-full">
+      <div class="form-control w-full">
         <label class="label"><span class="label-text">Name</span></label>
 
         {{ form.name }}
@@ -13,7 +15,7 @@
         {% endif %}
       </div>
 
-      <div class="form-contrl w-full">
+      <div class="form-control w-full">
         <label class="label"><span class="label-text">Email</span></label>
 
         {{ form.email }}
@@ -24,7 +26,7 @@
       </div>
 
      <div class="modal-action">
-      <button type="button" class="btn btn-primary" onclick="contact-modal.close()">Cancel</button>
+      <button type="button" class="btn btn-primary" onclick="contact_modal.close()">Cancel</button>
       <button type="submit" class="btn btn-primary">Add Contact</button>
      </div>
     </form>
