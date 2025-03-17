@@ -5,7 +5,7 @@
     <form hx-post="{% url 'create-contact' %}" 
       hx-target="#contact-table-body"
       hx-swap="afterbegin"
-      hx-on:success:"contact_modal.close(); this.reset();"
+      hx-on:success="contact_modal.close(); this.reset();"
     class="mb-4">
 
       {% csrf_token %}

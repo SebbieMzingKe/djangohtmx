@@ -38,7 +38,7 @@ def search_contacts(request):
 @login_required
 @require_http_methods(["POST"])
 def create_contact(request):
-    form = ContactForm()
+    form = ContactForm(request.POST)
     
     if form.is_valid():
         contact = form.save(commit=False)
@@ -47,6 +47,6 @@ def create_contact(request):
 
         # return partial containing new row we can add to the table
         context = {"contact": contact}
-        response = render(request, "partials/contact-row.htm", context)
+        response = render(request, "partials/contact-row.html", context)
         response['HX-Trigger'] = 'success'
         return response
