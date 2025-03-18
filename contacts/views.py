@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from django.db.models import Q
 import time
@@ -61,6 +62,7 @@ def create_contact(request):
 
         return response
 
+@csrf_exempt
 @login_required
 @require_http_methods(['DELETE'])
 def delete_contact(request, pk):
