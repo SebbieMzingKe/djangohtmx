@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
+from django.http import HttpResponse
 
 from django.db.models import Q
 import time
 from .forms import ContactForm
+from .models import Contact
 
 # Create your views here.
 
@@ -38,7 +40,7 @@ def search_contacts(request):
 @login_required
 @require_http_methods(["POST"])
 def create_contact(request):
-    form = ContactForm(request.POST, initial={"user": request.user})
+    form = ContactForm(request.POST, request.FILES, initial={"user": request.user})
     
     if form.is_valid():
         contact = form.save(commit=False)
@@ -58,3 +60,12 @@ def create_contact(request):
         response["HX-Trigger-After-Settle"] = "fail"
 
         return response
+
+@login_required
+@require_http_methods(['DELETE'])
+def delete_contact(request, pk):
+    contact = get_object_or_404(Contact, pk=pk, user=request.user)
+    contact.delete()
+    response = HttpResponse(status=204)
+    response['HX-Trigger'] = 'contact-deleted'
+    return response

@@ -5,6 +5,7 @@
     <form hx-post="{% url 'create-contact' %}" 
       hx-target="#contact-table-body"
       hx-swap="afterbegin"
+      hx-encoding='multipart/form-data'
       hx-on:success="contact_modal.close(); this.reset();"
     class="mb-4">
 
@@ -26,6 +27,17 @@
 
         {% if form.email.errors %}
           <label class="label text-error">{{ form.email.errors.0 }} </label>
+          {% endif %}
+      </div>
+
+
+      <div class="form-control w-full">
+        <label class="label"><span class="label-text">Document</span></label>
+
+        {{ form.document }}
+
+        {% if form.document.errors %}
+          <label class="label text-error">{{ form.document.errors.0 }} </label>
           {% endif %}
       </div>
 

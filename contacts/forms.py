@@ -21,6 +21,18 @@ class ContactForm(forms.ModelForm):
             }
         )
     )
+    
+    document = forms.FileField(
+        widget=forms.FileInput(
+            attrs={
+                'class': 'file-input file-input-bordered w-full',
+            }
+        ),
+        required=False
+    )
+    
+    
+    
     def clean_name(self):
         name = self.cleaned_data['name']
         
