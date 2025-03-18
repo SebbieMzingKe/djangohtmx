@@ -42,4 +42,13 @@
     {% include 'partials/contact-list.html' %}
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.addEventListener("fail", () => {
+      console.log("failed to add contact");
+      document.getElementById('contact_modal').showModal();
+    });
+  });
+</script>
+
 {% endblock %}

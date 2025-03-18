@@ -14,7 +14,7 @@
 
         {{ form.name }}
 
-        {% if form.name.error %}
+        {% if form.name.errors %}
           <label class="label text-error">{{ form.name.errors }}</label>
         {% endif %}
       </div>
@@ -24,9 +24,9 @@
 
         {{ form.email }}
 
-        {% if form.email.error %}
-          <label class="label text-error">{{ form.email.errors }}</label>
-        {% endif %}
+        {% if form.email.errors %}
+          <label class="label text-error">{{ form.email.errors.0 }} </label>
+          {% endif %}
       </div>
 
      <div class="modal-action">
