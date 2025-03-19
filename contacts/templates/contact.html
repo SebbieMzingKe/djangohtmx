@@ -48,6 +48,13 @@
       console.log("failed to add contact");
       document.getElementById('contact_modal').showModal();
     });
+    
+    document.body.addEventListener('success', () => {
+      let firstContactDiv = document.querySelector('.no-contact-row');
+      if (firstContactDiv) {
+        firstContactDiv.remove();
+      }
+    });
   });
 </script>
 

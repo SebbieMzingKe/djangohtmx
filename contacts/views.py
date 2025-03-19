@@ -71,3 +71,8 @@ def delete_contact(request, pk):
     response = HttpResponse(status=204)
     response['HX-Trigger'] = 'contact-deleted'
     return response
+    
+    
+    # <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    # <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    # <script src="https://unpkg.com/htmx.org@2.0.4"></script>
