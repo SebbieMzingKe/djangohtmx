@@ -3,3 +3,4 @@ db.sqlite3
 htmx
 .env
 node_modules
+staticfiles
